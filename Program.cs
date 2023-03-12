@@ -1,9 +1,16 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 
 namespace OOP_LR4._1
 {
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+        }
+    }
     public class EventBus
     {
         private Dictionary<string, List<Action>> _eventHandlers;
@@ -54,6 +61,15 @@ namespace OOP_LR4._1
             {
                 ThreadPool.QueueUserWorkItem(_ => handler());
             }
+        }
+    }
+    public class TemperatureChangedEventArgs : EventArgs
+    {
+        public double Temperature { get; set; }
+
+        public TemperatureChangedEventArgs(double temperature)
+        {
+            Temperature = temperature;
         }
     }
 }
